@@ -1,3 +1,5 @@
+/* ЗАДАЧА №1*/
+
 class PrintEditionItem {
   constructor(name, releaseDate, pagesCount, state, type = null) {
     this.name = name;
@@ -59,3 +61,5 @@ class DetectiveBook extends Book {
     }
 }
 
+
+/* ЗАДАНИЕ №2*/
