@@ -24,7 +24,7 @@ Student.prototype.getAverage = function () {
   }
   let sum = 0;
   for (let i = 0; i < this.marks.length; i++) {
-    sum += this.marks.length;
+    sum += this.marks[i];
   }
   return sum / this.marks.length;
 };
