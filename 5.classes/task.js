@@ -13,15 +13,15 @@ class PrintEditionItem {
 
   set state(number) {
     if (number < 0) {
-      this.state = 100;
+      this._state = 100;
     } else if (this.number > 100) {
-      this.state = 100;
+      this._state = 100;
     } else {
       state = this.number;
     }
   }
   get state() {
-    return this.state;
+    return this._state;
   }
 }
 
@@ -34,32 +34,31 @@ class Magazine extends PrintEditionItem {
 
 class Book extends PrintEditionItem {
   constructor(name, releaseDate, pagesCount) {
-    super(name, releaseDate, pagesCount, state, type);
+    super(name, releaseDate, pagesCount);
     this.author = author;
     this.type = "book";
   }
 }
 
 class NovelBook extends Book {
-    constructor(name, releaseDate, pagesCount) {
-        super(name, releaseDate, pagesCount, state, type);
-        this.type = 'novel';
-    }
+  constructor(name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
+    this.type = "novel";
+  }
 }
 
 class FantasticBook extends Book {
-    constructor(name, releaseDate, pagesCount) {
-        super(name, releaseDate, pagesCount, state, type);
-        this.type = 'fantastic';
-    }
+  constructor(name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
+    this.type = "fantastic";
+  }
 }
 
 class DetectiveBook extends Book {
-    constructor(name, releaseDate, pagesCount) {
-        super(name, releaseDate, pagesCount, state, type);
-        this.type = 'detective';
-    }
+  constructor(name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
+    this.type = "detective";
+  }
 }
-
 
 /* ЗАДАНИЕ №2*/
