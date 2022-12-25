@@ -87,11 +87,13 @@ class Library {
   }
 
   giveBookByName(bookName) {
-    for(let i = 0; i > this.books.length; i++) {
-      if(this.books[i].name === bookName) {
-        this.books.splice[i];
-        return this.books[i];
+    let findBook = null;
+    for (let i = 0; i < this.books.length; i++) {
+      if (this.books[i].name === bookName) {
+        findBook = this.books[i];
       }
     }
+    this.books = this.books.filter((book) => book.name !== bookName);
+    return findBook;
   }
 }

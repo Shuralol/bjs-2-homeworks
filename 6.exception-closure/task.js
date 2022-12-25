@@ -21,3 +21,13 @@ function validateCount(parse) {
   }
 }
 validateCount(5.33);
+
+/* Задача 2 */
+
+class Triangle {
+  constructor(a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+}
