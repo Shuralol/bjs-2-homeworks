@@ -1,23 +1,20 @@
 ﻿/* Задача 1 */
 
 function parseCount(parse) {
-  return Number.parseFloat(parse);
-}
-console.log(Number.parseFloat("12.3px"));
-
-if (Number.parseFloat("FF2")) {
-  throw new Error("невалидное значение");
+  const parseResult = parseFloat(parse);
+  if (isNaN(parseFloat(parse))) {
+    throw new Error("Невалидное значение");
+  }
+  return parseResult;
 }
 
 function validateCount(parse) {
   try {
-    const parseNumber = Number.parseFloat(parse);
-    if (!isFinite(parseNumber)) {
-      throw new Error("не валидное значение");
-    }
+    const parseNumber = parseFloat(parse);
+    parseCount(parse);
     return parseNumber;
   } catch (error) {
-    return error.message;
+    return error;
   }
 }
 validateCount(5.33);
@@ -26,8 +23,13 @@ validateCount(5.33);
 
 class Triangle {
   constructor(a, b, c) {
-    this.a = a;
-    this.b = b;
-    this.c = c;
+    this.sideA = a;
+    this.sideB = b;
+    this.sideC = c;
+
+    if (a + b < c && a + c < b) {
+    } else {
+      throw new Error("Треугольник с такими сторонами не существует");
+    }
   }
 }
