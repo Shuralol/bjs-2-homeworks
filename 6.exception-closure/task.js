@@ -25,9 +25,23 @@ class Triangle {
     this.sideB = b;
     this.sideC = c;
 
-    if (a + b < c && a + c < b) {
-    } else {
+    if (a + b < c || b + c < a || a + c < b) {
       throw new Error("Треугольник с такими сторонами не существует");
     }
+  }
+  get perimeter() {
+    return this.sideA + this.sideB + this.sideC;
+  }
+
+  get area() {
+    return parseFloat((this.sideA + this.sideB + this.sideC) / 2).toFixed(3);
+  }
+}
+
+function getTriangle(a, b, c) {
+  try {
+    return new Triangle(a, b, c);
+  } catch {
+    return { perimeter: "Ошибка! Треугольник не существует", area: area() };
   }
 }
