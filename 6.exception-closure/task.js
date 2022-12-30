@@ -21,20 +21,26 @@ validateCount(5.33);
 
 class Triangle {
   constructor(a, b, c) {
-    this.sideA = a;
-    this.sideB = b;
-    this.sideC = c;
-
     if (a + b < c || b + c < a || a + c < b) {
       throw new Error("Треугольник с такими сторонами не существует");
     }
+
+    this.sideA = a;
+    this.sideB = b;
+    this.sideC = c;
   }
   get perimeter() {
     return this.sideA + this.sideB + this.sideC;
   }
 
   get area() {
-    return parseFloat((this.sideA + this.sideB + this.sideC) / 2).toFixed(3);
+    const p = (this.sideA + this.sideB + this.sideC) / 2;
+
+    return Number(
+      Math.sqrt(
+        p * (p - this.sideA) * (p - this.sideB) * (p - this.sideC)
+      ).toFixed(3)
+    );
   }
 }
 
@@ -42,6 +48,13 @@ function getTriangle(a, b, c) {
   try {
     return new Triangle(a, b, c);
   } catch {
-    return { perimeter: "Ошибка! Треугольник не существует", area: area() };
+    return {
+      get area() {
+        return "Ошибка! Треугольник не существует";
+      },
+      get perimeter() {
+        return "Ошибка! Треугольник не существует";
+      },
+    };
   }
 }
